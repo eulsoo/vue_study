@@ -1,0 +1,31 @@
+.v-enter-active, .v-leave-active {
+  transition: all 1s ease;
+}
+/* opacity:0에서 1까지 페이드인&페이드아웃하기 */
+.v-enter, .v-leave-to {
+  opacity: 0;
+}
+
+[v-cloak] {display: none}
+
+#app {
+  transition: all 3s ease;
+  opacity: 1;
+}
+#app[v-cloak] {
+  opacity: 0;
+}
+
+img {
+  opacity: 1;
+  transition: opacity 2s;
+}
+img.hide {
+  opacity: 0;
+}
+.box {
+  border:10px solid red;
+  width:100px;
+  height:100px;
+}
+.compact {background-color: gray}

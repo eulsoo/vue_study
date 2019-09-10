@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>vue start</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+    <link media="all" href="main.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<div id="app" v-cloak >
+    <header v-bind:class="{compact: scrollY > 200}"> 200px 이상 스크롤시 .compact 추가</header>
+    이름 <input type="text" v-model="name" />
+    <p ref="hello">Hello</p>
+    <button v-on:click="doAdd">몬스터 추가하기</button>
+    <ul>
+        <li 
+        v-for="(item, index) in list" 
+        v-bind:key="item.id">
+            ID.{{ item.id }} {{ item.name }} {{ item.hp }}
+            <button v-on:click="doRemove(index)">제거</button>
+            <button v-on:click="doAttack(index)">공격</button>
+        </li>
+    </ul>
+
+    <!-- <select>
+        <option v-for="item in list">{{ item }}</option>
+    </select> -->
+
+    <span v-for="item in bgColor">{{ item }}</span>
+    <button v-on:click="handleClick">Count up</button>
+    <button v-on:click="show=!show">표시/비표시</button>
+    <span ref="count" v-if="show">0</span>
+
+    <!-- <a v-bind:href="url" v-once> {{ message }} </a> -->
+    <span v-html="message"></span>
+
+    <button v-on:click="show=!show">토글</button>
+    <div v-if="show" key="A">
+        A <input type="text">
+    </div>
+    <div v-else key="B">
+        B <input type="text">
+    </div>
+    <br />
+    <button v-on:click="eulsoo($event, item)">더하기</button>
+
+    <img src="http://placehold.it/200x200" v-on:load="show = true" v-bind:class="{hide:!show}"/>
+
+    <input type="text" v-on:input="update($event)"/>
+    <p>{{ message }}</p>
+
+    <textarea v-model="message"></textarea>
+    <pre>{{ message }}</pre>
+
+    <input type="checkbox" v-model="show" true-value="했음" false-value="안했음"> {{ show }}
+
+    <input type="radio" v-model="val" value="A"> A <br/>
+    <input type="radio" v-model="val" value="B"> B <br/>
+    <input type="radio" v-model="val" value="C"> C <br/>
+    <p v-if="val[0]">{{ val }}</p>
+    <p v-else>3중에 고르시오</p>
+
+    <input type="file" v-on:change="handleChange">
+    <img v-if="preview" v-bind:src="preview" />
+
+    <input type="range" v-model.number="val"> {{ val }}
+
+    <input type="text" v-model.lazy="price"> {{ price }}
+    <p>{{ width }} 의 절반은 {{ halfWidth }}입니다.</p>
+
+    <p> X : {{ halfPoint.x }} </p>
+    <p> Y : {{ halfPoint.y }} </p>
+
+    <input v-model.number="width"> {{ width }}
+    <input v-model.number="halfWidth"> {{ halfWidth }}
+
+    <ol>
+        <li> {{ computedData }} </li>
+        <li> {{ computedData }} </li>
+    </ol>
+
+    <ol>
+        <li> {{ methodsData() }} </li>
+        <li> {{ methodsData() }} </li>
+    </ol>
+
+    <input type="text" v-model.number="budget" />원 이하의 필터링하기
+    <input type="text" v-model.number="limit" />개의 결과 출력하기
+    <p>{{ matched.length }} 개의 중에 {{ limited.length }}개를 출력하고 있습니다. </p>
+
+    <button v-on:click="eulsoo">변화</button>
+
+    <ul>
+        <li v-for="item in limited" v-bind:key="item.id">
+            {{ item.name }} {{ item.price }}원
+        </li>
+    </ul>
+
+    <div  style="border:2px solid black">
+        asdfasd
+    </div>
+
+    <select v-model="current">
+        <option v-for="topic in topics" v-bind:value="topic.value">
+            {{ topic.name }}
+        </option>
+    </select>
+    <div v-for="item in glist">{{ item.full_name }}</div>
+    <div>{{ price | localeNum }}원</div>
+    <div>{{ 180 | radian | round }}라디언입니다.</div>
+
+    <input type="text" v-border />
+
+    <button v-on:click="video1=true">재생</button>
+    <button v-on:click="video1=false">중지</button>
+    <video src="html5video.mp4" v-video="video1"></video>
+
+    <button v-on:click="video2=true">재생</button>
+    <button v-on:click="video2=false">중지</button>
+    <video src="html5video.mp4" v-video="video2"></video>
+
+    <button v-on:click="rlist.push(list.length+1)">추가</button>
+    <ul ref="list">
+        <li v-for="item in rlist">{{ item }}</li>
+    </ul>
+    <my-component v-bind:persona="persona" v-on:c-event="say"></my-component>
+    <comp-son v-on:c-evt="parentsMethod"></comp-son>
+
+</div>
+
+<script src="main.js"></script>
+<br/><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</body>
+</html>

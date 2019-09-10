@@ -1,7 +1,0 @@
-.v-enter-active, .v-leave-active {
-  transition: all 1s ease;
-}
-/* opacity:0에서 1까지 페이드인&페이드아웃하기 */
-.v-enter, .v-leave-to {
-  opacity: 0;
-}

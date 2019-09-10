@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>vue start</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+    <link media="all" href="main.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<div id="app">
+    <comp-child 
+        v-on:childs-event="parentsMethod($event, pData)"
+        ref="doit"
+    ></comp-child>
+
+    <ul>
+        <comp-child2 
+            v-for="item in list"
+            v-bind:key="item.id"
+            v-bind="item"
+            v-on:attack="handleAttack"></comp-child2>
+    </ul>
+
+    <my-icon v-on:click.native="hclick"></my-icon>
+    <comp-child3>
+        <li slot-scope="props">{{ props.item.name }}</li>
+    </comp-child3>
+
+    </transition>
+
+    <button v-on:click="count++">변경하기</button>
+    <transition name="demo">
+        <my-label v-bind:count="count" v-bind:key="count"></my-label>
+    </transition>
+
+    <button v-on:click="order = !order">변경하기</button>
+    <transition-group class="list" tag="ul" >
+        <li v-for="item in sortedList" v-bind:key="item.id"> {{ item.name }} {{ item.price }}원</li>
+    </transition-group>
+    
+
+</div>
+
+<script src="main.js" ></script>
+<br/><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</body>
+</html>
