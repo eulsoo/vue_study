@@ -6,7 +6,7 @@
       app
     >
       <v-list dense>
-        <v-list-tile @click="$router.push({name:'home'})">
+        <v-list-tile @click="$router.push({name:'home'})" exact>
           <v-list-tile-action>
             <i class="fas fa-home"></i>
           </v-list-tile-action>
@@ -14,7 +14,7 @@
             <v-list-tile-title>Home</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile @click="$router.push({name:'about'})">
+        <v-list-tile @click="$router.push({name:'about'})" exact>
           <v-list-tile-action>
             <i class="fas fa-user"></i>
           </v-list-tile-action>
@@ -23,9 +23,8 @@
           </v-list-tile-content>
         </v-list-tile>
         <v-list-tile @click="$router.push({
-            name:'users',
-            params: {userId:4321, name:'eulsoo'}
-          })">
+            name:'users'
+          })" exact>
           <v-list-tile-action>
             <i class="fas fa-user"></i>
           </v-list-tile-action>

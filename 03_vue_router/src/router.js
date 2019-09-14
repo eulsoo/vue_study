@@ -11,6 +11,14 @@ const Users = () => {
   return import('./views/Users.vue')
 }
 
+const UsersDetail = () => {
+  return import('./views/UsersDetail.vue')
+}
+
+const UsersEdit = () => {
+  return import('./views/UsersEdit.vue')
+}
+
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -35,7 +43,27 @@ export default new Router({
     {
       path: '/users', // ':'의 뒤의 'userId'라는 이름을 페이지 내에서 사용
       name: 'users',
-      component: Users
+      component: Users,
+      children: [
+        {
+          path: ':id', // /users뒤에 :id 는 일종의 변수 처리 이 변수에 해당하는 컴포넌트를 호출
+          name: 'users-detail',
+          component: UsersDetail
+        },
+        {
+          path: ':id/edit', // /users뒤에 :id 는 일종의 변수 처리 이 변수에 해당하는 컴포넌트를 호출
+          name: 'users-edit',
+          component: UsersEdit
+        }
+      ]
+    },
+    {
+      path: '/redirect-me',
+      redirect: { name: 'users' }
+    },
+    {
+      path: '/*',
+      redirect: { name: 'home' }
     }
   ]
 })
