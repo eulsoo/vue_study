@@ -22,8 +22,10 @@
                         type="password"
                         placeholder="password"
                         ></v-text-field>
-                        
+
                         <v-btn large block depressed color="primary" v-on:click="login({ email, password })">로그인</v-btn>
+                        <!-- <v-btn v-on:click="test">테스트</v-btn>
+                        <v-btn v-on:click="postTest">포스트테스트</v-btn> -->
                     </div>
                </v-card>
            </v-flex>
@@ -32,7 +34,9 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex';
+import axios from 'axios';
+
 
 export default {
     data: function() {
@@ -46,6 +50,32 @@ export default {
     },
     methods: {
         ...mapActions(['login']),
+        // test:function() {  
+        //     axios.get('https://reqres.in/api')
+        //     .then( res => {
+        //         // handle success
+        //         console.log(res);
+        //     })
+        //     .catch( res => {
+        //         // handle error
+        //         console.log(err);
+        //     })
+        //     .finally( () => {
+        //         console.log('test');
+        //         // always executed
+        //     });
+        // },
+        // postTest:function() {
+        //     axios.post('https://reqres.in/api/register', {
+        //         "email": "eve.holt@reqres.in",
+        //         "password": "pistol"
+        //     }).then(res => {
+        //         console.log(res);
+        //     })
+        //     .catch(err => {
+        //         console.log(err);
+        //     });
+        // }
     }
 }
 </script>
