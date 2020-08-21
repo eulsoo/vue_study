@@ -10,7 +10,6 @@ export default {
         this.$store.dispatch(`FETCH_LIST`, this.$route.name)
             .then(() => {
                 bus.$emit('end:spinner');
-                console.log(5);
             })
             .catch(() => {
                 console.log('error');

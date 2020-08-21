@@ -43,6 +43,7 @@ export const store = new Vuex.Store({
             try {
                 const res = await fetchUserInfo(userName);
                 context.commit('SET_USER', res.data);
+                console.log(res)
                 return res; // 리턴을 해줘야 다음일을 한다? 어떤값을 리턴하더라도 promise가 리턴된다?
             } catch (err) {
                 console.log(err);
@@ -62,7 +63,6 @@ export const store = new Vuex.Store({
         //     return fetchListItem(pageName)
         //         .then(res => {
         //             context.commit('SET_LIST', res.data);
-        //             console.log(4);
         //             return res;
         //         })
         //         .catch(err => {

@@ -10,7 +10,13 @@ export default {
     components: {
         ListItem
     },
-    mixins: [listMixin]
+    mixins: [listMixin],
+    created() {
+        console.log('start')
+    },
+    destoryed() {
+        console.log('end')
+    }
 }
 </script>
 

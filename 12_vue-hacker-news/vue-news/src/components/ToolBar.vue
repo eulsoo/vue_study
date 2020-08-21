@@ -3,8 +3,9 @@
       <router-link 
         to="/news" 
         v-bind:class="{active:isNav.isNews}" 
-        v-on:click.native="setNav()"
+        v-on:click.native="setNav()" 
       >News</router-link>
+      <!-- 설치태그에 메소드연결하려면 .native 사용함. -->
       <router-link 
         to="/ask" 
         v-bind:class="{active:isNav.isAsk}" 

@@ -17,6 +17,19 @@
                 <div v-html="comment.content"></div>
             </li>
       </ul>
+        <!-- 무한 댑쓰 댓글을 어떻게 for로 처리할까? -->
+        <!-- https://medium.com/@enro2414_40667/virtual-dom-%EB%B2%84%EC%B6%94%EC%96%BC-%EB%8F%94-%EA%B0%80%EC%83%81-%EB%8F%94-%EC%9D%84-%EC%A7%81%EC%A0%91-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EC%9E%90-1c44606ea9b1 -->
+        <!-- <ul className=”list”>
+            <li>item 1</li>
+            <li>item 2</li>
+        </ul>
+        function h(type, props, …children) {
+            return { type, props, children };
+        }
+        h(‘ul’, { ‘class’: ‘list’ },
+            h(‘li’, {}, ‘item 1’),
+            h(‘li’, {}, ‘item 2’),
+        ); -->
       
   </div>
 </template>

@@ -19,7 +19,7 @@ export default {
         }
     },
     created() {
-        const userName = this.$route.params.id;        
+        const userName = this.$route.params.id;  
         this.$store.dispatch('FETCH_USER', userName);
     }
 }
@@ -30,6 +30,4 @@ export default {
 .user_profile > * {display: block;}
 .user_profile > span {margin-right:5px}
 .user_profile > strong {color:#2455c3; }
-.user_profile .created {}
-.user_profile .karma {}
 </style>
